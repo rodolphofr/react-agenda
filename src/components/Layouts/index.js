@@ -1,7 +1,7 @@
 import Header from './Header'
-import ContainerBox from './ContainerBox'
+import Footer from "./Footer";
 
 export {
     Header,
-    ContainerBox
+    Footer
 }

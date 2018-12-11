@@ -4,14 +4,25 @@ import PropTypes from 'prop-types'
 import SearchBar from "../SearchBar";
 
 const styles = theme => ({
-    AppBar: {
+    appBar: {
         backgroundColor: '#2196f3'
     },
-    title: {
+    typography: {
         color: theme.palette.common.white,
-        padding: 20,
+        paddingTop: 20,
+        paddingBottom: 20,
         marginLeft: 0,
         marginBottom: 0,
+        textTransform: 'uppercase',
+        fontWeight: 'bold',
+        [theme.breakpoints.up('xs')]: {
+            fontSize: 23,
+            marginRight: 10
+        },
+        [theme.breakpoints.up('lg')]: {
+            fontSize: 35,
+            marginRight: 10
+        }
     }
 })
 
@@ -19,10 +30,10 @@ const Header = props => {
     const { classes } = props;
 
     return (
-        <AppBar className={classes.AppBar}>
+        <AppBar className={classes.appBar}>
             <Toolbar>
-                <Typography className={classes.title} variant="h4" gutterBottom>
-                    Agenda
+                <Typography className={classes.typography} gutterBottom>
+                    Contact.me
                 </Typography>
                 <SearchBar input={ () => console.log('searching...') } />
             </Toolbar>

@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Agenda from "./components/Agenda";
+import HomePage from "./pages/HomePage"
 
-ReactDOM.render(<Agenda />, document.getElementById('root'));
+ReactDOM.render(<HomePage />, document.getElementById('root'));
