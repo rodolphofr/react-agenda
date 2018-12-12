@@ -22,6 +22,7 @@ export const contacts = [
         id: 1,
         name: 'Erica Cristina',
         avatar: 'erica-avatar',
+        position: 'Gerente de Desenvolvimento',
         contacts: {
             phoneNumbers: [
                 {
@@ -31,7 +32,7 @@ export const contacts = [
                     }
                 },
                 {
-                    number: 11534312312,
+                    number: 11934312312,
                     phoneType: { 
                         id: 3 
                     }
@@ -46,6 +47,7 @@ export const contacts = [
         id: 2,
         name: 'Kamila Karina',
         avatar: 'kamila-avatar',
+        position: 'Analista de TI',
         contacts: {
             phoneNumbers: [
                 {
@@ -64,6 +66,7 @@ export const contacts = [
         id: 3,
         name: 'Rodolpho Rodrigues',
         avatar: 'rodolpho-avatar',
+        position: 'Analista de TI',
         contacts: {
             phoneNumbers: [
                 {
@@ -88,6 +91,7 @@ export const contacts = [
         id: 4,
         name: 'Cristiane Zia Lopes',
         avatar: 'cristiane-avatar',
+        position: 'Professora de Educação Física',
         contacts: {
             phoneNumbers: [
                 {
@@ -106,6 +110,7 @@ export const contacts = [
         id: 5,
         name: 'Alessandro de São Vicente',
         avatar: 'alessandro-avatar',
+        position: 'Analista de TI',
         contacts: {
             phoneNumbers: [
                 {
@@ -124,6 +129,7 @@ export const contacts = [
         id: 6,
         name: 'Eric Jorge Barbos',
         avatar: 'eric-avatar',
+        position: 'Analista de TI',
         contacts: {
             phoneNumbers: [
                 {
@@ -142,6 +148,7 @@ export const contacts = [
         id: 7,
         name: 'Julio Cesar Pocielan',
         avatar: 'julio-avatar',
+        position: 'Analista de TI',
         contacts: {
             phoneNumbers: [
                 {
@@ -160,6 +167,7 @@ export const contacts = [
         id: 8,
         name: 'Camila dos Santos Oliveira',
         avatar: 'camila-santos-avatar',
+        position: 'Analista de TI',
         contacts: {
             phoneNumbers: [
                 {
@@ -178,6 +186,7 @@ export const contacts = [
         id: 9,
         name: 'Felipe Selis Santana',
         avatar: 'felipe-selis-avatar',
+        position: 'Analista de TI',
         contacts: {
             phoneNumbers: [
                 {
@@ -196,6 +205,7 @@ export const contacts = [
         id: 10,
         name: 'Bruna Magalhães Carvalho',
         avatar: 'bruna-carvalho-avatar',
+        position: 'Analista de TI',
         contacts: {
             phoneNumbers: [
                 {
@@ -214,6 +224,7 @@ export const contacts = [
         id: 11,
         name: 'Bruno de Castro Ricoy',
         avatar: 'bruno-ricoy-avatar',
+        position: 'Analista de TI',
         contacts: {
             phoneNumbers: [
                 {

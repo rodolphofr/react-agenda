@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
-import { Dialog, AppBar, Toolbar, IconButton, Typography, Button, withStyles, Slide } from "@material-ui/core";
+import { Dialog, AppBar, Toolbar, IconButton, Button, withStyles, Slide } from "@material-ui/core";
 import CloseIcon from '@material-ui/icons/Close';
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 const styles = {
     appBar: {
         position: 'relative',
         backgroundColor: '#2196f3'
     },
-    typography: {
+    gap: {
         flex: 1,
     }
 };
 
-
-
-class AddContactDialog extends Component {
+class ContactForm extends Component {
 
     constructor(props) {
         super(props)
@@ -33,24 +31,23 @@ class AddContactDialog extends Component {
 
     render() {
         
-        const { classes, onOpen, onClose } = this.props
+        const { classes, open, onClose } = this.props
 
         return (
             <Dialog
                 fullScreen
-                open={ onOpen }
-                onClose={ onClose }
+                open={ open }
                 TransitionComponent={ this.transitionType }
             >
                 <AppBar className={classes.appBar}>
                     <Toolbar>
-                    <IconButton color="inherit" onClick={this.handleClose} aria-label="Close">
-                        <CloseIcon />
-                    </IconButton>
-                    <Typography variant="title" color="inherit" className={classes.typography}></Typography>
-                    <Button color="inherit" onClick={this.handleClose}>
-                        Adicionar
-                    </Button>
+                        <IconButton color="inherit" onClick={ onClose } aria-label="Close">
+                            <CloseIcon />
+                        </IconButton>
+                        <div className={classes.gap}></div>
+                        <Button color="inherit" size="large">
+                            Adicionar
+                        </Button>
                     </Toolbar>
                 </AppBar>
             </Dialog>
@@ -58,4 +55,10 @@ class AddContactDialog extends Component {
     }
 }
 
-export default withStyles(styles)(AddContactDialog)
+ContactForm.propTypes = {
+    classes: PropTypes.object.isRequired,
+    open: PropTypes.bool,
+    onClose: PropTypes.func.isRequired
+}
+
+export default withStyles(styles)(ContactForm)

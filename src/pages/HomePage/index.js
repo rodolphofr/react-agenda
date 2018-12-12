@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Header, Footer } from "../../components/Layouts"
-import ContactList from '../../components/ContactList'
-import AddContactDialog from '../../components/AddContactDialog'
+import { ContactList, ContactForm } from '../../components/Contact'
 
 class HomePage extends Component {
 
@@ -9,7 +8,7 @@ class HomePage extends Component {
         super(props)
 
         this.state = {
-            openAddContactDialog: false
+            dialogOpen: false
         }
 
         this.handleAddClick = this.handleAddClick.bind(this)
@@ -18,13 +17,13 @@ class HomePage extends Component {
 
     handleAddClick() {
         this.setState({
-            openAddContactDialog: true
+            dialogOpen: true
         })
     }
 
     handleCloseDialog() {
         this.setState({
-            openAddContactDialog: false
+            dialogOpen: false
         })
     }
 
@@ -34,8 +33,8 @@ class HomePage extends Component {
             <Fragment>
                 <Header />
                 <ContactList />
-                <Footer addContactHandler={ this.handleAddClick }/>
-                <AddContactDialog onOpen={ this.state.openAddContactDialog }/>
+                <ContactForm open={ this.state.dialogOpen } onClose={ this.handleCloseDialog }/>
+                <Footer onClickAddHandler={ this.handleAddClick } />
             </Fragment>
         )
     }

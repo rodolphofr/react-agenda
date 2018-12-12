@@ -1,44 +1,41 @@
 import React, { Component } from 'react'
-import { AppBar, Toolbar, Fab, withStyles } from "@material-ui/core";
+import { Fab, withStyles } from "@material-ui/core";
 import AddIcon from '@material-ui/icons/Add';
 import PropTypes from 'prop-types'
 
-const styles = {
-    appBar: {
-        top: 'auto',
+const styles = theme => ({
+    footer: {
+        position:'fixed',
         bottom: 0,
-        backgroundColor: '#2196f3',
-    },
-    toolbar: {
-        alignItems: 'center',
-        justifyContent: 'space-between'
+        zIndex: 1,
+        width: '100%'
     },
     fabButton: {
-        position: 'absolute',
-        zIndex: 1,
-        top: -30,
-        left: 0,
-        right: 0,
-        margin: '0 auto'
+        float: 'right',
+        margin: theme.spacing.unit * 4,
+        backgroundColor: '#2196f3',
+        [theme.breakpoints.up('lg')]: {
+            width: 70,
+            height: 70
+        }
     }
-}
+})
 
 class Footer extends Component {
 
     render() {
-        const { classes } = this.props;
+        const { classes, onClickAddHandler } = this.props;
 
         return (
-            <AppBar position="fixed" className={classes.appBar}>
-                <Toolbar className={classes.toolbar}>
-                    <Fab color="secondary" 
-                         aria-label="Add" 
-                         className={classes.fabButton} 
-                         onClick={ this.props.addContactHandler }>
-                        <AddIcon />
-                    </Fab>
-                </Toolbar>
-            </AppBar>
+            <div className={ classes.footer }>
+                <Fab color="primary" 
+                    aria-label="Add" 
+                    className={classes.fabButton} 
+                    onClick={ onClickAddHandler }
+                    size='large'>
+                    <AddIcon />
+                </Fab>
+            </div>
         )
     }
 
@@ -46,7 +43,7 @@ class Footer extends Component {
 
 Footer.propTypes = {
     classes: PropTypes.object.isRequired,
-    addContactHandler: PropTypes.func.isRequired
+    onClickAddHandler: PropTypes.func.isRequired
 }
 
 export default withStyles(styles)(Footer)

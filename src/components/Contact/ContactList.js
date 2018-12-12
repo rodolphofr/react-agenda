@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
-import Contact from "./Contact";
+import ContactItem from "./ContactItem";
+import ContactInfoDialog from "./ContactInfoDialog";
 import * as Store from '../../store';
 import PropTypes from 'prop-types'
 import { 
@@ -12,6 +13,7 @@ import {
 const styles = theme => ({
       paper: {
         marginTop: theme.spacing.unit * 0.65,
+        paddingBottom: theme.spacing.unit * 3,
         width: '100%',
       },
       list: {
@@ -33,10 +35,13 @@ class ContactList extends Component {
 
         this.state = {
             contacts: [],
+            contactSelected: null,
         }
 
         this.category = ''
         this.isToRenderNewCategory = this.isToRenderNewCategory.bind(this)
+        this.handleShowInfo = this.handleShowInfo.bind(this)
+        this.handleCloseInfo = this.handleCloseInfo.bind(this)
     }
 
     componentDidMount() {
@@ -54,17 +59,26 @@ class ContactList extends Component {
         return true
 
     }
+    
+    handleShowInfo(item) {
+        this.setState({ contactSelected: item }) 
+    }
+
+    handleCloseInfo() {
+        this.setState({ contactSelected: null })
+    }
 
     render() {
 
         const { classes } = this.props
+        const { contacts, contactSelected } = this.state
 
         return (
             <Fragment>
                 <CssBaseline />
                 <Paper square className={classes.paper}>
                     <List className={classes.list}>
-                        { this.state.contacts.map(contact => (
+                        { contacts.map(contact => (
                             <Fragment key={ contact.id }>
                                 { 
                                     this.isToRenderNewCategory(contact.name) && 
@@ -72,11 +86,15 @@ class ContactList extends Component {
                                             { contact.name[0].toUpperCase() }
                                         </ListSubheader>
                                 }
-                                <Contact info={ contact }/>
+                                <ContactItem data={ contact } onClick={ () => this.handleShowInfo(contact) }/>
                             </Fragment>
                         ))}
                     </List>
                 </Paper>
+                { 
+                    contactSelected && 
+                        <ContactInfoDialog open={ !!contactSelected } onClose={ this.handleCloseInfo } data={ contactSelected } /> 
+                }
             </Fragment>
         )
     }

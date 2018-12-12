@@ -5,7 +5,7 @@ import SearchBar from "../SearchBar";
 
 const styles = theme => ({
     appBar: {
-        backgroundColor: '#2196f3',
+        backgroundColor: '#2196f3'
     },
     typography: {
         color: theme.palette.common.white,

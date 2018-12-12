@@ -14,13 +14,13 @@ class Contact extends Component {
 
     render() {
 
-        const { name, avatar, id, contacts } = this.props.info
-        const { classes } = this.props
+        const { name, avatar, position } = this.props.data
+        const { classes, ...others } = this.props
         
         return (
-            <ListItem key={id} button>
+            <ListItem button { ...others }>
                 <Avatar className={classes.avatar} alt={`avatar de ${name}`} src={ `/avatars/${avatar}.jpg` } />
-                <ListItemText primary={name} secondary={contacts.phoneNumbers[0].number}/>
+                <ListItemText primary={name} secondary={ position }/>
             </ListItem>
         )
     }
@@ -28,11 +28,11 @@ class Contact extends Component {
 
 Contact.propTypes = {
     classes: PropTypes.object.isRequired,
-    info: PropTypes.shape({
+    data: PropTypes.shape({
         id: PropTypes.number,
         name: PropTypes.string,
         avatar: PropTypes.string
     }).isRequired
 }
 
-export default withStyles(styles)(Contact)
+export default withStyles(styles)(Contact)         
