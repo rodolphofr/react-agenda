@@ -5,7 +5,7 @@ import SearchBar from "../SearchBar";
 
 const styles = theme => ({
     appBar: {
-        backgroundColor: '#2196f3'
+        backgroundColor: '#2196f3',
     },
     typography: {
         color: theme.palette.common.white,
@@ -30,14 +30,14 @@ const Header = props => {
     const { classes } = props;
 
     return (
-        <AppBar className={classes.appBar}>
+        <AppBar position='relative' className={classes.appBar}>
             <Toolbar>
                 <Typography className={classes.typography} gutterBottom>
                     Contact.me
                 </Typography>
                 <SearchBar input={ () => console.log('searching...') } />
             </Toolbar>
-        </AppBar>        
+        </AppBar>       
     )
 }
 

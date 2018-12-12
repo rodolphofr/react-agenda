@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { Avatar, ListItem, withStyles, ListItemText } from "@material-ui/core";
 import PropTypes from "prop-types";
 
-const styles = theme => ({
+const styles = {
     avatar: {
         margin: 10,
         width: 60,
         height: 60   
     }
-})
+}
 
 class Contact extends Component {
 

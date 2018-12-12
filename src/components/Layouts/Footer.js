@@ -7,7 +7,7 @@ const styles = {
     appBar: {
         top: 'auto',
         bottom: 0,
-        backgroundColor: '#2196f3'
+        backgroundColor: '#2196f3',
     },
     toolbar: {
         alignItems: 'center',

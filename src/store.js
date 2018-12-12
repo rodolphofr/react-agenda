@@ -44,8 +44,8 @@ export const contacts = [
     },
     {
         id: 2,
-        name: 'Camila Karina',
-        avatar: 'camila-avatar',
+        name: 'Kamila Karina',
+        avatar: 'kamila-avatar',
         contacts: {
             phoneNumbers: [
                 {
@@ -153,6 +153,78 @@ export const contacts = [
             ],
             emails: [
                 'julio.pocielan@b2wdigital.com'
+            ]
+        }
+    },
+    {
+        id: 8,
+        name: 'Camila dos Santos Oliveira',
+        avatar: 'camila-santos-avatar',
+        contacts: {
+            phoneNumbers: [
+                {
+                    number: 11983235567,
+                    phoneType: { 
+                        id: 1 
+                    }
+                }
+            ],
+            emails: [
+                'camila.santos@b2wdigital.com'
+            ]
+        }
+    },
+    {
+        id: 9,
+        name: 'Felipe Selis Santana',
+        avatar: 'felipe-selis-avatar',
+        contacts: {
+            phoneNumbers: [
+                {
+                    number: 11983235567,
+                    phoneType: { 
+                        id: 1 
+                    }
+                }
+            ],
+            emails: [
+                'felipe.selis@b2wdigital.com'
+            ]
+        }
+    },
+    {
+        id: 10,
+        name: 'Bruna Magalhães Carvalho',
+        avatar: 'bruna-carvalho-avatar',
+        contacts: {
+            phoneNumbers: [
+                {
+                    number: 11983235567,
+                    phoneType: { 
+                        id: 1 
+                    }
+                }
+            ],
+            emails: [
+                'bruna.magalhaes@b2wdigital.com'
+            ]
+        }
+    },
+    {
+        id: 11,
+        name: 'Bruno de Castro Ricoy',
+        avatar: 'bruno-ricoy-avatar',
+        contacts: {
+            phoneNumbers: [
+                {
+                    number: 11983235567,
+                    phoneType: { 
+                        id: 1 
+                    }
+                }
+            ],
+            emails: [
+                'bruno.ricoy@b2wdigital.com'
             ]
         }
     }

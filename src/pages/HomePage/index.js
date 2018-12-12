@@ -9,10 +9,11 @@ class HomePage extends Component {
         super(props)
 
         this.state = {
-            openAddPage: false
+            openAddContactDialog: false
         }
 
         this.handleAddClick = this.handleAddClick.bind(this)
+        this.handleCloseDialog = this.handleCloseDialog.bind(this)
     }
 
     handleAddClick() {
@@ -21,15 +22,20 @@ class HomePage extends Component {
         })
     }
 
-    render() {
+    handleCloseDialog() {
+        this.setState({
+            openAddContactDialog: false
+        })
+    }
 
+    render() {
 
         return (
             <Fragment>
                 <Header />
                 <ContactList />
                 <Footer addContactHandler={ this.handleAddClick }/>
-                <AddContactDialog fromComponent={ this.state.openFromComponent }/>
+                <AddContactDialog onOpen={ this.state.openAddContactDialog }/>
             </Fragment>
         )
     }
