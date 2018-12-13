@@ -11,9 +11,9 @@ const styles = {
         backgroundColor: blue[100],
         color: blue[600],
     },
-};
+}
 
-class ContactInfo extends Component {
+class ContactInfoDialog extends Component {
 
     render() {
 
@@ -53,7 +53,7 @@ class ContactInfo extends Component {
 
 }
 
-ContactInfo.propTypes = {
+ContactInfoDialog.propTypes = {
     classes: PropTypes.object.isRequired,
     data: PropTypes.shape({
         name: PropTypes.string,
@@ -61,4 +61,4 @@ ContactInfo.propTypes = {
     }).isRequired
 }
 
-export default withStyles(styles)(ContactInfo)
+export default withStyles(styles)(ContactInfoDialog)
