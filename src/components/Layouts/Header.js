@@ -1,7 +1,6 @@
 import React from 'react'
 import { AppBar, Typography, Toolbar, withStyles } from "@material-ui/core";
 import PropTypes from 'prop-types'
-import SearchBar from "../SearchBar";
 
 const styles = theme => ({
     appBar: {
@@ -26,8 +25,7 @@ const styles = theme => ({
     }
 })
 
-const Header = props => {
-    const { classes } = props;
+const Header = ({ classes, children }) => {
 
     return (
         <AppBar position='relative' className={classes.appBar}>
@@ -35,7 +33,7 @@ const Header = props => {
                 <Typography className={classes.typography} gutterBottom>
                     Contact.me
                 </Typography>
-                <SearchBar input={ () => console.log('searching...') } />
+                { children }
             </Toolbar>
         </AppBar>       
     )

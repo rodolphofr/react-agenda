@@ -27,9 +27,10 @@ describe('<Footer />', () => {
         expect(button.children(AddIcon).exists).toBeTruthy()
     })
 
-    it('deve conter propriedades', () => 
-        expect(Object.keys(Component().props()).length).toBe(0)
-    )
+    it('deve conter propriedades', () => {
+        const Component = mount(<Footer a={ jest.fn() } />)
+        expect(Object.keys(Component.props()).length).toBeGreaterThan(0)
+    })
 
     it('o botão de adicionar deve ser clicavel', () => {
         const mockHandleClick = jest.fn()

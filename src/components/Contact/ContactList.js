@@ -35,13 +35,14 @@ class ContactList extends Component {
 
         this.state = {
             contacts: [],
-            contactSelected: null,
+            contactSelected: null
         }
 
         this.category = ''
         this.isToRenderNewCategory = this.isToRenderNewCategory.bind(this)
         this.handleShowInfo = this.handleShowInfo.bind(this)
         this.handleCloseInfo = this.handleCloseInfo.bind(this)
+        this.filterList = this.filterList.bind(this)
     }
 
     componentDidMount() {
@@ -68,27 +69,41 @@ class ContactList extends Component {
         this.setState({ contactSelected: null })
     }
 
+    filterList(search) {
+
+        const contacts = this.state.contacts
+            .filter(({ name }) => new RegExp(`(?=${search})`, 'i').test(name))
+
+        setTimeout(() => this.setState({ contacts }), 500)
+
+    }
+
     render() {
 
-        const { classes } = this.props
+        const { classes, filter } = this.props
         const { contacts, contactSelected } = this.state
+
+        if (filter) 
+            this.filterList(filter)
 
         return (
             <Fragment>
                 <CssBaseline />
                 <Paper square className={classes.paper}>
                     <List className={classes.list}>
-                        { contacts.map(contact => (
-                            <Fragment key={ contact.id }>
-                                { 
-                                    this.isToRenderNewCategory(contact.name) && 
-                                        <ListSubheader className={classes.listSubHeader}>
-                                            { contact.name[0].toUpperCase() }
-                                        </ListSubheader>
-                                }
-                                <ContactItem data={ contact } onClick={ () => this.handleShowInfo(contact) }/>
-                            </Fragment>
-                        ))}
+                        { 
+                            contacts.map(contact => (
+                                <Fragment key={ contact.id }>
+                                    { 
+                                        this.isToRenderNewCategory(contact.name) && 
+                                            <ListSubheader className={classes.listSubHeader}>
+                                                { contact.name[0].toUpperCase() }
+                                            </ListSubheader>
+                                    }
+                                    <ContactItem data={ contact } onClick={ () => this.handleShowInfo(contact) }/>
+                                </Fragment>
+                            ))
+                        }
                     </List>
                 </Paper>
                 { 
@@ -101,7 +116,8 @@ class ContactList extends Component {
 }
 
 ContactList.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    filter: PropTypes.string
 }
 
 export default withStyles(styles)(ContactList)

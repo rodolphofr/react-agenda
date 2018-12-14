@@ -55,7 +55,7 @@ class SearchBar extends Component {
 
     render() {
 
-        const { classes, input } = this.props;
+        const { classes, onInput } = this.props;
 
         return (
             <Fragment>
@@ -66,7 +66,7 @@ class SearchBar extends Component {
                     </div>
                     <InputBase
                         placeholder="Search…"
-                        onChange={ input }
+                        onChange={ onInput }
                         classes={{
                             root: classes.inputRoot,
                             input: classes.inputInput,
@@ -81,7 +81,7 @@ class SearchBar extends Component {
 
 SearchBar.propTypes = {
     classes: PropTypes.object.isRequired,
-    input: PropTypes.func.isRequired
+    onInput: PropTypes.func.isRequired
 }
 
 export default withStyles(styles)(SearchBar)
