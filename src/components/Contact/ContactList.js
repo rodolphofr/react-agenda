@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import ContactItem from "./ContactItem";
 import ContactInfoDialog from "./ContactInfoDialog";
-import * as Store from '../../store';
+import * as Store from '~/store';
 import PropTypes from 'prop-types'
 import { 
     CssBaseline, 

@@ -50,6 +50,9 @@ class ContactForm extends Component {
                         </Button>
                     </Toolbar>
                 </AppBar>
+                <form>
+                    
+                </form>
             </Dialog>
         )
     }

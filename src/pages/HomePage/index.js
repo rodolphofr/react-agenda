@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import { Header, Footer } from "../../components/Layouts"
-import { ContactList, ContactForm } from '../../components/Contact'
-import SearchBar from '../../components/SearchBar';
+import { Header, Footer } from "~/components/Layouts"
+import { ContactList, ContactForm } from '~/components/Contact'
+import SearchBar from '~/components/SearchBar';
 class HomePage extends Component {
 
     constructor(props) {

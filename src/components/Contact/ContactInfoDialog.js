@@ -3,7 +3,7 @@ import { Dialog, DialogTitle, List, ListItem, withStyles, ListItemAvatar, Avatar
 import PersonIcon from '@material-ui/icons/Person';
 import PhoneIcon from '@material-ui/icons/Phone';
 import blue from '@material-ui/core/colors/blue';
-import { phoneNumberToBRFormat } from "../../utils";
+import { phoneNumberToBRFormat } from "~/utils";
 import PropTypes from "prop-types";
 
 const styles = {
