@@ -30,18 +30,20 @@ class HomePage extends Component {
     
     filterList = (event) => {
 
+        const storeContacts = Store.contacts
         const search = event.target.value
-        const contacts = this.state.contacts.filter(({ name }) => 
+
+        const contacts = storeContacts.filter(({ name }) => 
                 new RegExp(`(?=${search})`, 'i').test(name.replace(/\s+/g, '')))
 
         setTimeout(() => {
 
             if (!search)
-                this.setState({ contacts: Store.contacts })
+                this.setState({ contacts: storeContacts })
             else if (contacts.length) 
                 this.setState({ contacts })
             
-        }, 500)
+        }, 300)
 
     }
 

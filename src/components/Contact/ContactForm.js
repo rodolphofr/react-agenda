@@ -13,11 +13,11 @@ const styles = {
     }
 };
 
-const ContactForm = ({ open, onClose, classes }) => {
+function transitionType(props) {
+    return <Slide direction="up" {...props}/>
+} 
 
-    const transitionType = (props) => {
-        return <Slide direction="up" {...props} />
-    }
+const ContactForm = ({ open, onClose, classes }) => {
 
     return (
         <Dialog

@@ -20,6 +20,9 @@ const ContactInfoDialog = ({ data: { name, contacts }, classes, ...others }) => 
             <DialogTitle>{ name }</DialogTitle>
             <Fragment>
                 <List>
+                    <ListItem disabled>
+                        <ListItemText>E-mails</ListItemText>
+                    </ListItem>
                     { contacts.emails.map(email => (
                         <ListItem button key={email}>
                             <ListItemAvatar>
@@ -30,6 +33,9 @@ const ContactInfoDialog = ({ data: { name, contacts }, classes, ...others }) => 
                             <ListItemText primary={email} />
                         </ListItem>
                     ))}
+                    <ListItem disabled>
+                        <ListItemText>Telefones</ListItemText>
+                    </ListItem>
                     { contacts.phoneNumbers.map(({ number }) => (
                         <ListItem button key={number}>
                             <ListItemAvatar>
