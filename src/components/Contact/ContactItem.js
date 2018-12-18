@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Avatar, ListItem, withStyles, ListItemText } from "@material-ui/core";
 import PropTypes from "prop-types";
 
@@ -10,23 +10,18 @@ const styles = {
     }
 }
 
-class Contact extends Component {
+const ContactItem = ({ data, classes, ...others }) => {
 
-    render() {
+    return (
+        <ListItem button { ...others }>
+            <Avatar className={classes.avatar} alt={`avatar de ${data.name}`} src={ `/avatars/${data.avatar}.jpg` } />
+            <ListItemText primary={data.name} secondary={ data.position }/>
+        </ListItem>
+    )
 
-        const { name, avatar, position } = this.props.data
-        const { classes, ...others } = this.props
-        
-        return (
-            <ListItem button { ...others }>
-                <Avatar className={classes.avatar} alt={`avatar de ${name}`} src={ `/avatars/${avatar}.jpg` } />
-                <ListItemText primary={name} secondary={ position }/>
-            </ListItem>
-        )
-    }
 }
 
-Contact.propTypes = {
+ContactItem.propTypes = {
     classes: PropTypes.object.isRequired,
     data: PropTypes.shape({
         id: PropTypes.number,
@@ -35,4 +30,4 @@ Contact.propTypes = {
     }).isRequired
 }
 
-export default withStyles(styles)(Contact)         
+export default withStyles(styles)(ContactItem)         

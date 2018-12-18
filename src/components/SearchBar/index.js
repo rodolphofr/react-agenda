@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import { InputBase } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import { fade } from '@material-ui/core/styles/colorManipulator';
@@ -51,31 +51,27 @@ const styles = theme => ({
         }
     }
 })
-class SearchBar extends Component {
 
-    render() {
+const SearchBar = ({ onInput, classes }) => {
 
-        const { classes, onInput } = this.props;
-
-        return (
-            <Fragment>
-                <div className={classes.grow} />
-                <div className={classes.search}>
-                    <div className={classes.searchIcon}>
-                        <SearchIcon />
-                    </div>
-                    <InputBase
-                        placeholder="Search…"
-                        onChange={ onInput }
-                        classes={{
-                            root: classes.inputRoot,
-                            input: classes.inputInput,
-                        }}
-                    />
+    return (
+        <Fragment>
+            <div className={classes.grow} />
+            <div className={classes.search}>
+                <div className={classes.searchIcon}>
+                    <SearchIcon />
                 </div>
-            </Fragment>
-        )
-    }
+                <InputBase
+                    placeholder="Search…"
+                    onChange={ onInput }
+                    classes={{
+                        root: classes.inputRoot,
+                        input: classes.inputInput,
+                    }}
+                />
+            </div>
+        </Fragment>
+    )
 
 }
 
