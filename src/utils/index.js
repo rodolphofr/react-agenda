@@ -1,10 +1,10 @@
-import { parsePhoneNumber } from "libphonenumber-js";
+import { parsePhoneNumber } from 'libphonenumber-js';
 
 export const phoneNumberToBRFormat = number => {
 
-    if (typeof(number) === 'number')
-        number = number.toString()
+  if (typeof (number) === 'number')
+    number = number.toString();
 
-    return parsePhoneNumber(number, 'BR').formatNational()
+  return parsePhoneNumber(number, 'BR').formatNational();
 
-}
+};
