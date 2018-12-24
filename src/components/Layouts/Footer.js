@@ -8,7 +8,7 @@ const styles = theme => ({
     position: 'fixed',
     bottom: 0,
     zIndex: 1,
-    width: '100%'
+    width: '100%',
   },
   fabButton: {
     float: 'right',
@@ -16,34 +16,34 @@ const styles = theme => ({
     backgroundColor: '#2196f3',
     [theme.breakpoints.up('lg')]: {
       width: 70,
-      height: 70
-    }
-  }
+      height: 70,
+    },
+  },
 });
 
 class Footer extends Component {
-
   render() {
     const { classes, onClickAddHandler } = this.props;
 
     return (
       <div className={classes.footer}>
-        <Fab color="primary"
+        <Fab
+          color="primary"
           aria-label="Add"
           className={classes.fabButton}
           onClick={onClickAddHandler}
-          size='large'>
+          size="large"
+        >
           <AddIcon />
         </Fab>
       </div>
     );
   }
-
 }
 
 Footer.propTypes = {
   classes: PropTypes.object.isRequired,
-  onClickAddHandler: PropTypes.func.isRequired
+  onClickAddHandler: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Footer);

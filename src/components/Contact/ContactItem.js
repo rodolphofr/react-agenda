@@ -6,19 +6,21 @@ const styles = {
   avatar: {
     margin: 10,
     width: 60,
-    height: 60
-  }
+    height: 60,
+  },
 };
 
 const ContactItem = ({ data, classes, ...others }) => {
-
   return (
     <ListItem button {...others}>
-      <Avatar className={classes.avatar} alt={`avatar de ${data.name}`} src={`/avatars/${data.avatar}.jpg`} />
+      <Avatar
+        className={classes.avatar}
+        alt={`avatar de ${data.name}`}
+        src={`/avatars/${data.avatar}.jpg`}
+      />
       <ListItemText primary={data.name} secondary={data.position} />
     </ListItem>
   );
-
 };
 
 ContactItem.propTypes = {
@@ -26,8 +28,8 @@ ContactItem.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
-    avatar: PropTypes.string
-  }).isRequired
+    avatar: PropTypes.string,
+  }).isRequired,
 };
 
 export default withStyles(styles)(ContactItem);

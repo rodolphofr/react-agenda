@@ -1,5 +1,14 @@
 import React, { Fragment } from 'react';
-import { Dialog, DialogTitle, List, ListItem, withStyles, ListItemAvatar, Avatar, ListItemText } from '@material-ui/core';
+import {
+  Dialog,
+  DialogTitle,
+  List,
+  ListItem,
+  withStyles,
+  ListItemAvatar,
+  Avatar,
+  ListItemText,
+} from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
 import PhoneIcon from '@material-ui/icons/Phone';
 import blue from '@material-ui/core/colors/blue';
@@ -13,8 +22,11 @@ const styles = {
   },
 };
 
-const ContactInfoDialog = ({ data: { name, contacts }, classes, ...others }) => {
-
+const ContactInfoDialog = ({
+  data: { name, contacts },
+  classes,
+  ...others
+}) => {
   return (
     <Dialog aria-labelledby="simple-dialog-title" {...others}>
       <DialogTitle>{name}</DialogTitle>
@@ -50,15 +62,14 @@ const ContactInfoDialog = ({ data: { name, contacts }, classes, ...others }) => 
       </Fragment>
     </Dialog>
   );
-
 };
 
 ContactInfoDialog.propTypes = {
   classes: PropTypes.object.isRequired,
   data: PropTypes.shape({
     name: PropTypes.string,
-    contacts: PropTypes.object.isRequired
-  }).isRequired
+    contacts: PropTypes.object.isRequired,
+  }).isRequired,
 };
 
 export default withStyles(styles)(ContactInfoDialog);

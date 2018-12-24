@@ -1,11 +1,9 @@
-// @flow
-
 import React, { Component, Fragment } from 'react';
 import { Header, Footer } from '~/components/Layouts';
 import {
   ContactList,
   ContactForm,
-  ContactInfoDialog
+  ContactInfoDialog,
 } from '~/components/Contact';
 import SearchBar from '~/components/SearchBar';
 import * as Store from '~/store';
@@ -17,7 +15,7 @@ class HomePage extends Component {
     this.state = {
       openAddForm: false,
       contacts: [],
-      contactSelected: undefined
+      contactSelected: undefined,
     };
 
     this.handleAddClick = this.handleAddClick.bind(this);
@@ -29,32 +27,32 @@ class HomePage extends Component {
 
   componentDidMount() {
     this.setState({
-      contacts: Store.contacts
+      contacts: Store.contacts,
     });
   }
 
   handleAddClick() {
     return this.setState({
-      openAddForm: true
+      openAddForm: true,
     });
   }
 
   handleCloseDialog() {
     this.setState({
-      openAddForm: false
+      openAddForm: false,
     });
   }
 
   handleShowInfo(item) {
     return () =>
       this.setState({
-        contactSelected: item
+        contactSelected: item,
       });
   }
 
   handleCloseInfo() {
     this.setState({
-      contactSelected: undefined
+      contactSelected: undefined,
     });
   }
 
@@ -63,7 +61,7 @@ class HomePage extends Component {
     const search = e.target.value;
 
     const contacts = storeContacts.filter(({ name }) =>
-      new RegExp(`(?=${search})`, 'i').test(name.replace(/\s+/g, ''))
+      new RegExp(`(?=${search})`, 'i').test(name.replace(/\s+/g, '')),
     );
 
     setTimeout(() => {

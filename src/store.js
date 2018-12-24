@@ -1,20 +1,20 @@
 export const phoneTypes = [
   {
     id: 1,
-    name: 'Celular'
+    name: 'Celular',
   },
   {
     id: 2,
-    name: 'Residencial'
+    name: 'Residencial',
   },
   {
     id: 3,
-    name: 'Comercial'
+    name: 'Comercial',
   },
   {
     id: 4,
-    name: 'Pager'
-  }
+    name: 'Pager',
+  },
 ];
 
 export const contacts = [
@@ -28,20 +28,18 @@ export const contacts = [
         {
           number: 11969043971,
           phoneType: {
-            id: 1
-          }
+            id: 1,
+          },
         },
         {
           number: 11934312312,
           phoneType: {
-            id: 3
-          }
+            id: 3,
+          },
         },
       ],
-      emails: [
-        'erica.cristina@b2wdigital.com'
-      ]
-    }
+      emails: ['erica.cristina@b2wdigital.com'],
+    },
   },
   {
     id: 2,
@@ -53,14 +51,12 @@ export const contacts = [
         {
           number: 11973058665,
           phoneType: {
-            id: 1
-          }
-        }
+            id: 1,
+          },
+        },
       ],
-      emails: [
-        'camila.karina@b2wdigital.com'
-      ]
-    }
+      emails: ['camila.karina@b2wdigital.com'],
+    },
   },
   {
     id: 3,
@@ -72,20 +68,18 @@ export const contacts = [
         {
           number: 11991936175,
           phoneType: {
-            id: 1
-          }
+            id: 1,
+          },
         },
         {
           number: 1120985420,
           phoneType: {
-            id: 2
-          }
-        }
+            id: 2,
+          },
+        },
       ],
-      emails: [
-        'rodolpho.rodrigues@b2wdigital.com'
-      ]
-    }
+      emails: ['rodolpho.rodrigues@b2wdigital.com'],
+    },
   },
   {
     id: 4,
@@ -97,14 +91,12 @@ export const contacts = [
         {
           number: 11983118411,
           phoneType: {
-            id: 1
-          }
-        }
+            id: 1,
+          },
+        },
       ],
-      emails: [
-        'cristzlopes@gmail.com'
-      ]
-    }
+      emails: ['cristzlopes@gmail.com'],
+    },
   },
   {
     id: 5,
@@ -116,14 +108,12 @@ export const contacts = [
         {
           number: 11991749680,
           phoneType: {
-            id: 1
-          }
-        }
+            id: 1,
+          },
+        },
       ],
-      emails: [
-        'alessandro.muscles@saindodajaula.com.br'
-      ]
-    }
+      emails: ['alessandro.muscles@saindodajaula.com.br'],
+    },
   },
   {
     id: 6,
@@ -135,14 +125,12 @@ export const contacts = [
         {
           number: 11973058665,
           phoneType: {
-            id: 1
-          }
-        }
+            id: 1,
+          },
+        },
       ],
-      emails: [
-        'eric.jorge@b2wdigital.com'
-      ]
-    }
+      emails: ['eric.jorge@b2wdigital.com'],
+    },
   },
   {
     id: 7,
@@ -154,14 +142,12 @@ export const contacts = [
         {
           number: 11975393068,
           phoneType: {
-            id: 1
-          }
-        }
+            id: 1,
+          },
+        },
       ],
-      emails: [
-        'julio.pocielan@b2wdigital.com'
-      ]
-    }
+      emails: ['julio.pocielan@b2wdigital.com'],
+    },
   },
   {
     id: 8,
@@ -173,14 +159,12 @@ export const contacts = [
         {
           number: 11983235567,
           phoneType: {
-            id: 1
-          }
-        }
+            id: 1,
+          },
+        },
       ],
-      emails: [
-        'camila.santos@b2wdigital.com'
-      ]
-    }
+      emails: ['camila.santos@b2wdigital.com'],
+    },
   },
   {
     id: 9,
@@ -192,14 +176,12 @@ export const contacts = [
         {
           number: 11983235567,
           phoneType: {
-            id: 1
-          }
-        }
+            id: 1,
+          },
+        },
       ],
-      emails: [
-        'felipe.selis@b2wdigital.com'
-      ]
-    }
+      emails: ['felipe.selis@b2wdigital.com'],
+    },
   },
   {
     id: 10,
@@ -211,14 +193,12 @@ export const contacts = [
         {
           number: 11983235567,
           phoneType: {
-            id: 1
-          }
-        }
+            id: 1,
+          },
+        },
       ],
-      emails: [
-        'bruna.magalhaes@b2wdigital.com'
-      ]
-    }
+      emails: ['bruna.magalhaes@b2wdigital.com'],
+    },
   },
   {
     id: 11,
@@ -230,15 +210,13 @@ export const contacts = [
         {
           number: 11983235567,
           phoneType: {
-            id: 1
-          }
-        }
+            id: 1,
+          },
+        },
       ],
-      emails: [
-        'bruno.ricoy@b2wdigital.com'
-      ]
-    }
-  }
+      emails: ['bruno.ricoy@b2wdigital.com'],
+    },
+  },
 ].sort((a, b) => {
   if (a.name > b.name) return 1;
   if (a.name < b.name) return -1;

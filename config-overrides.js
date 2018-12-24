@@ -1,4 +1,4 @@
-const { injectBabelPlugin } = require('react-app-rewired');
+const {injectBabelPlugin} = require('react-app-rewired');
 
 const rootImport = [
   'root-import',

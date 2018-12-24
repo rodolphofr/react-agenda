@@ -21,7 +21,7 @@ const styles = theme => ({
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing.unit,
       width: 'auto',
-    }
+    },
   },
   searchIcon: {
     width: theme.spacing.unit * 9,
@@ -47,13 +47,12 @@ const styles = theme => ({
       width: 120,
       '&:focus': {
         width: 200,
-      }
-    }
-  }
+      },
+    },
+  },
 });
 
 const SearchBar = ({ onInput, classes }) => {
-
   return (
     <Fragment>
       <div className={classes.grow} />
@@ -72,12 +71,11 @@ const SearchBar = ({ onInput, classes }) => {
       </div>
     </Fragment>
   );
-
 };
 
 SearchBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  onInput: PropTypes.func.isRequired
+  onInput: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(SearchBar);
