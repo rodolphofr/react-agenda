@@ -2,7 +2,8 @@
     "env": {
         "browser": true,
         "commonjs": true,
-        "es6": true
+        "es6": true,
+        "jest": true
     },
     "extends": [
         "eslint:recommended",
@@ -35,5 +36,11 @@
             "error",
             "always"
         ]
+    },
+    "settings": {
+        "react": {
+            "pragma": "React",
+            "version": "16.6.3"
+        }
     }
 }
