@@ -40,6 +40,7 @@ export const phoneTypes: PhoneType[] = [
   },
 ];
 
+// $FlowFixMe
 export const contacts: PersonalContact[] = [
   {
     id: 1,
@@ -240,8 +241,10 @@ export const contacts: PersonalContact[] = [
       emails: ['bruno.ricoy@b2wdigital.com'],
     },
   },
-].sort((a, b) => {
-  if (a.name > b.name) return 1;
-  if (a.name < b.name) return -1;
-  return 0;
-});
+].sort(
+  (a: any, b: any): number => {
+    if (a.name > b.name) return 1;
+    if (a.name < b.name) return -1;
+    return 0;
+  },
+);

@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Fab, withStyles } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import PropTypes from 'prop-types';
 
-const styles = theme => ({
+const styles = (theme: any): any => ({
   footer: {
     position: 'fixed',
     bottom: 0,
@@ -26,29 +25,21 @@ type Props = {
   onClickAddHandler: Function,
 };
 
-class Footer extends Component<Props> {
-  render() {
-    const { classes, onClickAddHandler } = this.props;
-
-    return (
-      <div className={classes.footer}>
-        <Fab
-          color="primary"
-          aria-label="Add"
-          className={classes.fabButton}
-          onClick={onClickAddHandler}
-          size="large"
-        >
-          <AddIcon />
-        </Fab>
-      </div>
-    );
-  }
-}
-
-Footer.propTypes = {
-  classes: PropTypes.object.isRequired,
-  onClickAddHandler: PropTypes.func.isRequired,
+const Footer = (props: Props): React.Element<'div'> => {
+  const { classes } = props;
+  return (
+    <div className={classes.footer}>
+      <Fab
+        color="primary"
+        aria-label="Add"
+        className={classes.fabButton}
+        onClick={props.onClickAddHandler}
+        size="large"
+      >
+        <AddIcon />
+      </Fab>
+    </div>
+  );
 };
 
 export default withStyles(styles)(Footer);

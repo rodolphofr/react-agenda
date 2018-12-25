@@ -1,33 +1,42 @@
 {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true,
-        "jest": true
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:flowtype/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:flowtype/recommended"
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "flowtype"],
+  "rules": {
+    "no-unused-vars": ["warn"],
+    "flowtype/no-types-missing-file-annotation": 0,
+    "flowtype/no-weak-types": [
+      2,
+      {
+        "any": false,
+        "Object": true,
+        "Function": false
+      }
     ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 2018,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "flowtype"
-    ],
-    "rules": {
-        "flowtype/no-types-missing-file-annotation": 0
-    },
-    "settings": {
-        "react": {
-            "pragma": "React",
-            "version": "16.6.3"
-        }
+    "flowtype/require-return-type": 1,
+    "flowtype/require-parameter-type": 1,
+    "flowtype/type-id-match": 0
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "16.6.3"
     }
+  }
 }

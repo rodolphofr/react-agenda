@@ -1,4 +1,7 @@
-import React, { Fragment } from 'react';
+import * as React from 'react';
+import PersonIcon from '@material-ui/icons/Person';
+import PhoneIcon from '@material-ui/icons/Phone';
+import blue from '@material-ui/core/colors/blue';
 import {
   Dialog,
   DialogTitle,
@@ -9,11 +12,9 @@ import {
   Avatar,
   ListItemText,
 } from '@material-ui/core';
-import PersonIcon from '@material-ui/icons/Person';
-import PhoneIcon from '@material-ui/icons/Phone';
-import blue from '@material-ui/core/colors/blue';
+
 import { phoneNumberToBRFormat } from '~/utils';
-import PropTypes from 'prop-types';
+import type { PersonalContact } from '~/store';
 
 const styles = {
   avatar: {
@@ -22,54 +23,53 @@ const styles = {
   },
 };
 
-const ContactInfoDialog = ({
-  data: { name, contacts },
-  classes,
-  ...others
-}) => {
+type Props = {
+  data: PersonalContact,
+  classes: any,
+  ...$Shape<any>,
+};
+
+const ContactInfoDialog = (props: Props): React.Element<Dialog> => {
+  const { data, classes, ...others } = props;
   return (
     <Dialog aria-labelledby="simple-dialog-title" {...others}>
-      <DialogTitle>{name}</DialogTitle>
-      <Fragment>
+      <DialogTitle>{data.name}</DialogTitle>
+      <React.Fragment>
         <List>
           <ListItem disabled>
             <ListItemText>E-mails</ListItemText>
           </ListItem>
-          {contacts.emails.map(email => (
-            <ListItem button key={email}>
-              <ListItemAvatar>
-                <Avatar className={classes.avatar}>
-                  <PersonIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary={email} />
-            </ListItem>
-          ))}
+          {data.contacts.emails.map(
+            (email: string): ListItem => (
+              <ListItem button key={email}>
+                <ListItemAvatar>
+                  <Avatar className={classes.avatar}>
+                    <PersonIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText primary={email} />
+              </ListItem>
+            ),
+          )}
           <ListItem disabled>
             <ListItemText>Telefones</ListItemText>
           </ListItem>
-          {contacts.phoneNumbers.map(({ number }) => (
-            <ListItem button key={number}>
-              <ListItemAvatar>
-                <Avatar className={classes.avatar}>
-                  <PhoneIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary={phoneNumberToBRFormat(number)} />
-            </ListItem>
-          ))}
+          {data.contacts.phoneNumbers.map(
+            ({ number }: { number: number }): ListItem => (
+              <ListItem button key={number}>
+                <ListItemAvatar>
+                  <Avatar className={classes.avatar}>
+                    <PhoneIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText primary={phoneNumberToBRFormat(number)} />
+              </ListItem>
+            ),
+          )}
         </List>
-      </Fragment>
+      </React.Fragment>
     </Dialog>
   );
-};
-
-ContactInfoDialog.propTypes = {
-  classes: PropTypes.object.isRequired,
-  data: PropTypes.shape({
-    name: PropTypes.string,
-    contacts: PropTypes.object.isRequired,
-  }).isRequired,
 };
 
 export default withStyles(styles)(ContactInfoDialog);

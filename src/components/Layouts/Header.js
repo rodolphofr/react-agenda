@@ -1,8 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { AppBar, Typography, Toolbar, withStyles } from '@material-ui/core';
-import PropTypes from 'prop-types';
 
-const styles = theme => ({
+const styles = (theme: any): any => ({
   appBar: {
     backgroundColor: '#2196f3',
   },
@@ -25,7 +24,13 @@ const styles = theme => ({
   },
 });
 
-const Header = ({ classes, children }) => {
+const Header = ({
+  classes,
+  children,
+}: {
+  classes: any,
+  children: React.Element<any>,
+}): React.Element<AppBar> => {
   return (
     <AppBar position="relative" className={classes.appBar}>
       <Toolbar>
@@ -36,11 +41,6 @@ const Header = ({ classes, children }) => {
       </Toolbar>
     </AppBar>
   );
-};
-
-Header.propTypes = {
-  classes: PropTypes.object.isRequired,
-  children: PropTypes.node,
 };
 
 export default withStyles(styles)(Header);

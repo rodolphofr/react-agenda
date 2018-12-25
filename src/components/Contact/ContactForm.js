@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {
   Dialog,
   AppBar,
@@ -9,7 +9,6 @@ import {
   Slide,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import PropTypes from 'prop-types';
 
 const styles = {
   appBar: {
@@ -21,16 +20,27 @@ const styles = {
   },
 };
 
-function transitionType(props) {
+type Props = {
+  open: boolean,
+  onClose: Function,
+  classes: any,
+};
+
+function transitionType(props: Props): React.Element<Slide> {
   return <Slide direction="up" {...props} />;
 }
 
-const ContactForm = ({ open, onClose, classes }) => {
+const ContactForm = (props: Props): React.Element<Dialog> => {
+  const { classes } = props;
   return (
-    <Dialog fullScreen open={open} TransitionComponent={transitionType}>
+    <Dialog fullScreen open={props.open} TransitionComponent={transitionType}>
       <AppBar className={classes.appBar}>
         <Toolbar>
-          <IconButton color="inherit" onClick={onClose} aria-label="Close">
+          <IconButton
+            color="inherit"
+            onClick={props.onClose}
+            aria-label="Close"
+          >
             <CloseIcon />
           </IconButton>
           <div className={classes.gap} />
@@ -41,12 +51,6 @@ const ContactForm = ({ open, onClose, classes }) => {
       </AppBar>
     </Dialog>
   );
-};
-
-ContactForm.propTypes = {
-  classes: PropTypes.object.isRequired,
-  open: PropTypes.bool,
-  onClose: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(ContactForm);

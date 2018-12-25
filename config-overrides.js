@@ -1,11 +1,11 @@
-const {injectBabelPlugin} = require('react-app-rewired');
+const { injectBabelPlugin } = require('react-app-rewired');
 
 const rootImport = [
   'root-import',
   {
     rootPathPrefix: '~',
-    rootPathSuffix: 'src'
-  }
+    rootPathSuffix: 'src',
+  },
 ];
 
-module.exports = config => injectBabelPlugin(rootImport, config);
+module.exports = (config: any): any => injectBabelPlugin(rootImport, config);

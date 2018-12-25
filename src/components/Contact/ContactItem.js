@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import { Avatar, ListItem, withStyles, ListItemText } from '@material-ui/core';
-import PropTypes from 'prop-types';
+import type { PersonalContact } from '~/store';
 
 const styles = {
   avatar: {
@@ -10,7 +10,14 @@ const styles = {
   },
 };
 
-const ContactItem = ({ data, classes, ...others }) => {
+type Props = {
+  data: PersonalContact,
+  classes: any,
+  ...$Shape<any>,
+};
+
+const ContactItem = (props: Props): React.Element<ListItem> => {
+  const { data, classes, ...others } = props;
   return (
     <ListItem button {...others}>
       <Avatar
@@ -21,15 +28,6 @@ const ContactItem = ({ data, classes, ...others }) => {
       <ListItemText primary={data.name} secondary={data.position} />
     </ListItem>
   );
-};
-
-ContactItem.propTypes = {
-  classes: PropTypes.object.isRequired,
-  data: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    avatar: PropTypes.string,
-  }).isRequired,
 };
 
 export default withStyles(styles)(ContactItem);

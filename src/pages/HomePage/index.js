@@ -1,13 +1,15 @@
-import React, { Component, Fragment } from 'react';
+import * as React from 'react';
+
+import { contacts as AllContacts } from '~/store';
+import type { PersonalContact } from '~/store';
+
 import { Header, Footer } from '~/components/Layouts';
+import SearchBar from '~/components/SearchBar';
 import {
   ContactList,
   ContactForm,
   ContactInfoDialog,
 } from '~/components/Contact';
-import SearchBar from '~/components/SearchBar';
-import { contacts as AllContacts } from '~/store';
-import type { PersonalContact } from '~/store';
 
 type Props = {};
 type State = {
@@ -16,7 +18,7 @@ type State = {
   contactSelected: ?PersonalContact,
 };
 
-class HomePage extends Component<Props, State> {
+class HomePage extends React.Component<Props, State> {
   constructor() {
     super();
 
@@ -27,55 +29,62 @@ class HomePage extends Component<Props, State> {
     };
   }
 
-  componentDidMount(): void {
+  componentDidMount() {
     this.setState({
       contacts: AllContacts,
     });
   }
 
-  handleAddClick = (): void => {
+  handleAddClick = () => {
     this.setState({
       openAddForm: true,
     });
   };
 
-  handleCloseDialog = (): void => {
+  handleCloseDialog = () => {
     this.setState({
       openAddForm: false,
     });
   };
 
   handleShowInfo = (item: PersonalContact): Function => {
-    return () =>
+    return (): void =>
       this.setState({
         contactSelected: item,
       });
   };
 
-  handleCloseInfo = (): void => {
+  handleCloseInfo = () => {
     this.setState({
       contactSelected: undefined,
     });
   };
 
-  filterList = (e: SyntheticEvent<HTMLInputElement>): void => {
+  filterList = (e: SyntheticEvent<HTMLInputElement>) => {
     const search = e.currentTarget.value;
 
-    const contacts = AllContacts.filter(({ name }) =>
-      new RegExp(`(?=${search})`, 'i').test(name.replace(/\s+/g, '')),
+    const contacts = AllContacts.filter(
+      (contact: PersonalContact): boolean => {
+        return new RegExp(`(?=${search})`, 'i').test(
+          contact.name.replace(/\s+/g, ''),
+        );
+      },
     );
 
     setTimeout(() => {
-      if (!search) this.setState({ contacts: AllContacts });
-      else if (contacts.length) this.setState({ contacts });
+      if (!search) {
+        this.setState({ contacts: AllContacts });
+      } else if (contacts.length) {
+        this.setState({ contacts });
+      }
     }, 300);
   };
 
-  render() {
+  render(): React.Element<'div'> {
     const { contacts, openAddForm, contactSelected } = this.state;
 
     return (
-      <Fragment>
+      <div>
         <Header>
           <SearchBar onInput={this.filterList} />
         </Header>
@@ -89,7 +98,7 @@ class HomePage extends Component<Props, State> {
             data={contactSelected}
           />
         )}
-      </Fragment>
+      </div>
     );
   }
 }

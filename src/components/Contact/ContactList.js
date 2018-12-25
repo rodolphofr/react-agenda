@@ -1,6 +1,7 @@
-import React, { Fragment } from 'react';
+import * as React from 'react';
 import ContactItem from './ContactItem';
-import PropTypes from 'prop-types';
+import type { PersonalContact } from '~/store';
+
 import {
   CssBaseline,
   Paper,
@@ -9,7 +10,7 @@ import {
   ListSubheader,
 } from '@material-ui/core';
 
-const styles = theme => ({
+const styles = (theme: any): any => ({
   paper: {
     marginTop: theme.spacing.unit * 0.65,
     paddingBottom: theme.spacing.unit * 3,
@@ -27,10 +28,16 @@ const styles = theme => ({
   },
 });
 
-const ContactList = ({ classes, onSelectedItem, items }) => {
+type Props = {
+  classes: any,
+  onSelectedItem: Function,
+  items: Array<PersonalContact>,
+};
+
+const ContactList = (props: Props): React.Element<'div'> => {
   let category = '';
 
-  function isToRenderNewCategory(name) {
+  function isToRenderNewCategory(name: string): boolean {
     const newCategory = name[0];
 
     if (newCategory === category) return false;
@@ -39,31 +46,29 @@ const ContactList = ({ classes, onSelectedItem, items }) => {
     return true;
   }
 
+  const { classes, onSelectedItem, items } = props;
+
   return (
-    <Fragment>
+    <div>
       <CssBaseline />
       <Paper square className={classes.paper}>
         <List className={classes.list}>
-          {items.map(contact => (
-            <Fragment key={contact.id}>
-              {isToRenderNewCategory(contact.name) && (
-                <ListSubheader className={classes.listSubHeader}>
-                  {contact.name[0].toUpperCase()}
-                </ListSubheader>
-              )}
-              <ContactItem data={contact} onClick={onSelectedItem(contact)} />
-            </Fragment>
-          ))}
+          {items.map(
+            (contact: PersonalContact): React.Element<'div'> => (
+              <div key={contact.id}>
+                {isToRenderNewCategory(contact.name) && (
+                  <ListSubheader className={classes.listSubHeader}>
+                    {contact.name[0].toUpperCase()}
+                  </ListSubheader>
+                )}
+                <ContactItem data={contact} onClick={onSelectedItem(contact)} />
+              </div>
+            ),
+          )}
         </List>
       </Paper>
-    </Fragment>
+    </div>
   );
-};
-
-ContactList.propTypes = {
-  classes: PropTypes.object.isRequired,
-  items: PropTypes.array.isRequired,
-  onSelectedItem: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(ContactList);

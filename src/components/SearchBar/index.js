@@ -1,11 +1,9 @@
-import React, { Fragment } from 'react';
-import { InputBase } from '@material-ui/core';
+import * as React from 'react';
+import { InputBase, withStyles } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade } from '@material-ui/core/styles/colorManipulator';
-import { withStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
 
-const styles = theme => ({
+const styles = (theme: any): any => ({
   grow: {
     flexGrow: 1,
   },
@@ -52,9 +50,15 @@ const styles = theme => ({
   },
 });
 
-const SearchBar = ({ onInput, classes }) => {
+type Props = {
+  onInput: Function,
+  classes: any,
+};
+
+const SearchBar = (props: Props): React.Element<'div'> => {
+  const { classes, onInput } = props;
   return (
-    <Fragment>
+    <div>
       <div className={classes.grow} />
       <div className={classes.search}>
         <div className={classes.searchIcon}>
@@ -69,13 +73,8 @@ const SearchBar = ({ onInput, classes }) => {
           }}
         />
       </div>
-    </Fragment>
+    </div>
   );
-};
-
-SearchBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-  onInput: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(SearchBar);

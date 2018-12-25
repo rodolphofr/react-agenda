@@ -1,20 +1,23 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
+import type { ReactWrapper } from 'enzyme';
+
 import Footer from './Footer';
-import Fab from '@material-ui/core/Fab';
+import { Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
 describe('<Footer />', () => {
   let mounted;
 
-  const Component = () => {
+  const Component = (): ReactWrapper => {
     if (!mounted) mounted = mount(<Footer />);
     return mounted;
   };
 
-  it('deve conter botao de adicionar', () =>
-    expect(Component().find(Fab)).toHaveLength(1));
+  it('deve conter botao de adicionar', () => {
+    expect(Component().find(Fab)).toHaveLength(1);
+  });
 
   it('o botao de adicionar deve conter icone', () => {
     const button = Component().find(Fab);
