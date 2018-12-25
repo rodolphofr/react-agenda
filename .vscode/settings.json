@@ -6,5 +6,5 @@
 
   "flow.useNPMPackagedFlow": true,
   "flow.runOnEdit": true,
-  "flow.runOnAllFiles": true,
+  "flow.runOnAllFiles": true
 }

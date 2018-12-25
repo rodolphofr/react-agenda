@@ -1,4 +1,27 @@
-export const phoneTypes: any[] = [
+export type PhoneType = {
+  id: number,
+  name: string,
+};
+
+export type PersonalContact = {
+  id: number,
+  name: string,
+  avatar: string,
+  position: string,
+  contacts: Contact,
+};
+
+export type Contact = {
+  phone: Phone,
+  emails: string[],
+};
+
+export type Phone = {
+  number: number,
+  phoneType: PhoneType,
+};
+
+export const phoneTypes: PhoneType[] = [
   {
     id: 1,
     name: 'Celular',
@@ -17,7 +40,7 @@ export const phoneTypes: any[] = [
   },
 ];
 
-export const contacts: any[] = [
+export const contacts: PersonalContact[] = [
   {
     id: 1,
     name: 'Erica Cristina',

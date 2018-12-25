@@ -6,13 +6,14 @@ import {
   ContactInfoDialog,
 } from '~/components/Contact';
 import SearchBar from '~/components/SearchBar';
-import * as Store from '~/store';
+import { contacts as AllContacts } from '~/store';
+import type { PersonalContact } from '~/store';
 
 type Props = {};
 type State = {
   openAddForm: boolean,
-  contacts: any[],
-  contactSelected: any,
+  contacts: PersonalContact[],
+  contactSelected: ?PersonalContact,
 };
 
 class HomePage extends Component<Props, State> {
@@ -28,7 +29,7 @@ class HomePage extends Component<Props, State> {
 
   componentDidMount(): void {
     this.setState({
-      contacts: Store.contacts,
+      contacts: AllContacts,
     });
   }
 
@@ -44,7 +45,7 @@ class HomePage extends Component<Props, State> {
     });
   };
 
-  handleShowInfo = (item: any): Function => {
+  handleShowInfo = (item: PersonalContact): Function => {
     return () =>
       this.setState({
         contactSelected: item,
@@ -58,15 +59,14 @@ class HomePage extends Component<Props, State> {
   };
 
   filterList = (e: SyntheticEvent<HTMLInputElement>): void => {
-    const storeContacts = Store.contacts;
     const search = e.currentTarget.value;
 
-    const contacts = storeContacts.filter(({ name }) =>
+    const contacts = AllContacts.filter(({ name }) =>
       new RegExp(`(?=${search})`, 'i').test(name.replace(/\s+/g, '')),
     );
 
     setTimeout(() => {
-      if (!search) this.setState({ contacts: storeContacts });
+      if (!search) this.setState({ contacts: AllContacts });
       else if (contacts.length) this.setState({ contacts });
     }, 300);
   };
