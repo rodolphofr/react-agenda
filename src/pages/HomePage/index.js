@@ -8,7 +8,14 @@ import {
 import SearchBar from '~/components/SearchBar';
 import * as Store from '~/store';
 
-class HomePage extends Component {
+type Props = {};
+type State = {
+  openAddForm: boolean,
+  contacts: any[],
+  contactSelected: any,
+};
+
+class HomePage extends Component<Props, State> {
   constructor() {
     super();
 
@@ -17,48 +24,42 @@ class HomePage extends Component {
       contacts: [],
       contactSelected: undefined,
     };
-
-    this.handleAddClick = this.handleAddClick.bind(this);
-    this.handleCloseDialog = this.handleCloseDialog.bind(this);
-    this.handleShowInfo = this.handleShowInfo.bind(this);
-    this.handleCloseInfo = this.handleCloseInfo.bind(this);
-    this.filterList = this.filterList.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     this.setState({
       contacts: Store.contacts,
     });
   }
 
-  handleAddClick() {
-    return this.setState({
+  handleAddClick = (): void => {
+    this.setState({
       openAddForm: true,
     });
-  }
+  };
 
-  handleCloseDialog() {
+  handleCloseDialog = (): void => {
     this.setState({
       openAddForm: false,
     });
-  }
+  };
 
-  handleShowInfo(item) {
+  handleShowInfo = (item: any): Function => {
     return () =>
       this.setState({
         contactSelected: item,
       });
-  }
+  };
 
-  handleCloseInfo() {
+  handleCloseInfo = (): void => {
     this.setState({
       contactSelected: undefined,
     });
-  }
+  };
 
-  filterList(e) {
+  filterList = (e: SyntheticEvent<HTMLInputElement>): void => {
     const storeContacts = Store.contacts;
-    const search = e.target.value;
+    const search = e.currentTarget.value;
 
     const contacts = storeContacts.filter(({ name }) =>
       new RegExp(`(?=${search})`, 'i').test(name.replace(/\s+/g, '')),
@@ -68,7 +69,7 @@ class HomePage extends Component {
       if (!search) this.setState({ contacts: storeContacts });
       else if (contacts.length) this.setState({ contacts });
     }, 300);
-  }
+  };
 
   render() {
     const { contacts, openAddForm, contactSelected } = this.state;

@@ -21,7 +21,12 @@ const styles = theme => ({
   },
 });
 
-class Footer extends Component {
+type Props = {
+  classes: any,
+  onClickAddHandler: Function,
+};
+
+class Footer extends Component<Props> {
   render() {
     const { classes, onClickAddHandler } = this.props;
 

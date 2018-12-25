@@ -1,4 +1,4 @@
-export const phoneTypes = [
+export const phoneTypes: any[] = [
   {
     id: 1,
     name: 'Celular',
@@ -17,7 +17,7 @@ export const phoneTypes = [
   },
 ];
 
-export const contacts = [
+export const contacts: any[] = [
   {
     id: 1,
     name: 'Erica Cristina',

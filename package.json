@@ -9,7 +9,6 @@
   "dependencies": {
     "@material-ui/core": "^3.6.2",
     "@material-ui/icons": "^3.0.1",
-    "flow-bin": "^0.89.0",
     "libphonenumber-js": "^1.6.9",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -23,7 +22,7 @@
     "eject": "react-scripts eject",
     "flow": "flow",
     "lint": "./node_modules/.bin/eslint src/**/*.js",
-    "format:all": "prettier src/**/*.js"
+    "format:all": "prettier --write src/**/*.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,7 +37,10 @@
     "babel-plugin-root-import": "^6.1.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
+    "eslint-plugin-flowtype": "^3.2.0",
     "eslint-plugin-react": "^7.11.1",
+    "flow-bin": "^0.89.0",
+    "flow-typed": "^2.5.1",
     "jest": "^23.6.0",
     "prettier": "^1.15.3",
     "react-app-rewired": "^1.6.2"

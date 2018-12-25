@@ -2,4 +2,5 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HomePage from './pages/HomePage';
 
-ReactDOM.render(<HomePage />, document.getElementById('root'));
+const root: Element = document.getElementById('root');
+ReactDOM.render(<HomePage />, root);
