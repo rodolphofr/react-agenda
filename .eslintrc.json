@@ -17,15 +17,26 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react", "flowtype"],
+  "plugins": ["react", "flowtype", "flowtype-errors"],
   "rules": {
+    "indent": ["warn", 2],
+    "quotes": ["warn", "single"],
+    "semi": ["warn", "always"],
+
     "no-unused-vars": ["warn"],
     "flowtype/no-types-missing-file-annotation": 0,
-    "flowtype/no-weak-types": [2, { "any": false, "Object": true, "Function": false }],
+    "flowtype/no-weak-types": [
+      2,
+      { "any": false, "Object": true, "Function": false }
+    ],
     "flowtype/require-return-type": 1,
     "flowtype/require-parameter-type": 1,
     "flowtype/type-id-match": 0,
-    "flowtype/no-dupe-keys": 2
+    "flowtype/no-dupe-keys": 2,
+
+    "flowtype-errors/show-errors": "error",
+    "flowtype-errors/show-warnings": "warn",
+    "flowtype-errors/enforce-min-coverage": [2, 50]
   },
   "settings": {
     "react": {
@@ -34,6 +45,9 @@
     },
     "flowtype": {
       "onlyFilesWithFlowAnnotation": false
+    },
+    "flowtype-errors": {
+      "flowDir": ".flowconfig"
     }
   },
   "overrides": [

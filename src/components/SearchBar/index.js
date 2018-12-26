@@ -55,10 +55,10 @@ type Props = {
   classes: any,
 };
 
-const SearchBar = (props: Props): React.Element<'div'> => {
+const SearchBar = (props: Props): React.Element<typeof React.Fragment> => {
   const { classes, onInput } = props;
   return (
-    <div>
+    <React.Fragment>
       <div className={classes.grow} />
       <div className={classes.search}>
         <div className={classes.searchIcon}>
@@ -73,7 +73,7 @@ const SearchBar = (props: Props): React.Element<'div'> => {
           }}
         />
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

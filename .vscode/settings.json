@@ -3,7 +3,5 @@
   "[javascript]": {
     "editor.formatOnSave": true
   },
-
-  "eslint.run": "onType",
-  "eslint.workingDirectories": ["./src"],
+  "eslint.run": "onType"
 }
