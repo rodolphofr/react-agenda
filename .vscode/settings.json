@@ -6,5 +6,4 @@
 
   "eslint.run": "onType",
   "eslint.workingDirectories": ["./src"],
-  "eslint.autoFixOnSave": false
 }

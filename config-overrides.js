@@ -8,4 +8,4 @@ const rootImport = [
   },
 ];
 
-module.exports = (config: any): any => injectBabelPlugin(rootImport, config);
+module.exports = config => injectBabelPlugin(rootImport, config);

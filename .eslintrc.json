@@ -21,22 +21,28 @@
   "rules": {
     "no-unused-vars": ["warn"],
     "flowtype/no-types-missing-file-annotation": 0,
-    "flowtype/no-weak-types": [
-      2,
-      {
-        "any": false,
-        "Object": true,
-        "Function": false
-      }
-    ],
+    "flowtype/no-weak-types": [2, { "any": false, "Object": true, "Function": false }],
     "flowtype/require-return-type": 1,
     "flowtype/require-parameter-type": 1,
-    "flowtype/type-id-match": 0
+    "flowtype/type-id-match": 0,
+    "flowtype/no-dupe-keys": 2
   },
   "settings": {
     "react": {
       "pragma": "React",
       "version": "16.6.3"
+    },
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": false
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": ["config-overrides.js"],
+      "rules": {
+        "flowtype/require-return-type": 0,
+        "flowtype/require-parameter-type": 0
+      }
+    }
+  ]
 }
